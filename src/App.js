@@ -95,13 +95,15 @@ function App() {
 
   return (
     <div className="App">
-      <Menu setSelectedScript={setSelectedScript}/>
-      <div>
-        {selectedData.map(scriptData => {
-          return (
-            <ScriptData key={scriptData.id} scriptData={scriptData}/>
-          )
-        })}
+      <div className="app-container">
+        <Menu setSelectedScript={setSelectedScript}/>
+        <div className="data-container">
+          {selectedData.map(scriptData => {
+            return (
+              <ScriptData key={scriptData.id} scriptData={scriptData}/>
+              )
+            })}
+        </div>
       </div>
     </div>
   );

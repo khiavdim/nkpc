@@ -2,14 +2,60 @@
 
 .App {
   text-align: center;
-  font-family: "Noto Serif Nyiakeng Puachue Hmong", serif;
-  font-size: 20pt;
+  background-color: gray;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
 }
 
 .menu-container {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 14pt;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  background-color: lightgray;
+  height: 50px;
+}
+
+.data-container {
+  box-sizing: border-box;
+  margin: 20px;
+  width: 100%-20px;
+  overflow: scroll;
+}
+
+button {
+  background-color: lightgray;
+  border: 0px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.586);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  height: 50px;
+  font-family: "Noto Serif Nyiakeng Puachue Hmong", serif;
+  font-size: 20pt;
+}
+
+tr {
+
+  font-size: 18pt;
 }
