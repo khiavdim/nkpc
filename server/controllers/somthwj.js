@@ -2,44 +2,37 @@ const somthwj = [
     {
         id: 1,
         value: "𞄰",
-        definition: "b",
-        name: "somthwb"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄰𞄬"
     },
     {
         id: 2,
         value: "𞄱",
-        definition: "m",
-        name: "somthwm"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄱𞄬"
     },
     {
         id: 3,
         value: "𞄲",
-        definition: "j",
-        name: "somthwj"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄲𞄬"
     },
     {
         id: 4,
         value: "𞄳",
-        definition: "v",
-        name: "somthwv"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄳𞄬"
     },
     {
         id: 5,
         value: "𞄴",
-        definition: "s",
-        name: "somthws"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄴𞄬"
     },
     {
         id: 6,
         value: "𞄵",
-        definition: "g",
-        name: "somthwg"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄵𞄬"
     },
     {
         id: 7,
         value: "𞄶",
-        definition: "d",
-        name: "somthwd"
+        name: "𞄊𞄨𞄱𞄃𞄄𞄶𞄬"
     }
   ];
   

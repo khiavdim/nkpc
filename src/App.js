@@ -5,92 +5,101 @@ import Menu from './Components/Menu';
 import ScriptData from './Components/ScriptData';
 
 function App() {
-  const [homcimData, setHomcimData] = useState([]);
-  const [logogramData, setLogogramData] = useState([]);
-  const [numberData, setNumberData] = useState([]);
-  const [nyiakengData, setNyiakengData] = useState([]);
-  const [puachueKengData, setPuachueKengData] = useState([]);
-  const [puachuePhwData, setPuachuePhwData] = useState([]);
-  const [somthwjData, setSomthwjData] = useState([]);
+  const [selectedScript, setSelectedScript] = useState("HOMCIM");
   const [selectedData, setSelectedData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4200/api/homcim")
-      .then(res => {
-        setHomcimData(res.data);
-      })
-      .catch(err => {
-        if(err) {
-          console.log('Error getting Homcim Data', err.res)
-        }
-    });
-    axios.get("http://localhost:4200/api/logogram")
-    .then(res => {
-      setLogogramData(res.data);
-    })
-    .catch(err => {
-      if(err) {
-        console.log('Error getting Logogram Data', err.res)
-      }
-  });
-  axios.get("http://localhost:4200/api/number")
-  .then(res => {
-    setNumberData(res.data);
-  })
-  .catch(err => {
-    if(err) {
-      console.log('Error getting Number Data', err.res)
-    }
-});
-axios.get("http://localhost:4200/api/nyiakeng")
+    switch (selectedScript) {
+      case "HOMCIM":
+        axios.get("http://localhost:4200/api/homcim")
+        .then(res => {
+          setSelectedData(res.data);
+        })
+        .catch(err => {
+          if(err) {
+            console.log('Error getting Homcim Data', err.res)
+          }
+       });
+        break;
+      case "LOGOGRAM":
+        axios.get("http://localhost:4200/api/logogram")
+        .then(res => {
+          setSelectedData(res.data);
+        })
+        .catch(err => {
+          if(err) {
+            console.log('Error getting Logogram Data', err.res)
+          }
+        });
+        break;
+      case "NUMBER":
+        axios.get("http://localhost:4200/api/number")
+        .then(res => {
+          setSelectedData(res.data);
+        })
+        .catch(err => {
+          if(err) {
+            console.log('Error getting Number Data', err.res)
+          }
+      });
+        break;
+      case "NYIAKENG":
+        axios.get("http://localhost:4200/api/nyiakeng")
+        .then(res => {
+          setSelectedData(res.data);
+        })
+        .catch(err => {
+          if(err) {
+            console.log('Error getting Nyiakeng Data', err.res)
+          }
+        });
+        break;
+      case "PUACHUEKENG":
+        axios.get("http://localhost:4200/api/puachue-keng")
+          .then(res => {
+            setSelectedData(res.data);
+          })
+          .catch(err => {
+            if(err) {
+              console.log('Error getting Puachue Keng Data', err.res)
+            }
+        });
+        break;
+      case "PUACHUEPHW":
+        axios.get("http://localhost:4200/api/puachue-phw")
+        .then(res => {
+          setSelectedData(res.data);
+        })
+        .catch(err => {
+          if(err) {
+            console.log('Error getting Puachue Phw Data', err.res)
+          }
+        });
+        break;
+      case "SOMTHWJ":
+        axios.get("http://localhost:4200/api/somthwj")
 .then(res => {
-  setNyiakengData(res.data);
-})
-.catch(err => {
-  if(err) {
-    console.log('Error getting Nyiakeng Data', err.res)
-  }
-});
-axios.get("http://localhost:4200/api/puachue-keng")
-.then(res => {
-  setPuachueKengData(res.data);
-})
-.catch(err => {
-  if(err) {
-    console.log('Error getting Puachue Keng Data', err.res)
-  }
-});
-axios.get("http://localhost:4200/api/puachue-phw")
-.then(res => {
-  setPuachuePhwData(res.data);
-})
-.catch(err => {
-  if(err) {
-    console.log('Error getting Puachue Phw Data', err.res)
-  }
-});
-axios.get("http://localhost:4200/api/somthwj")
-.then(res => {
-  setSomthwjData(res.data);
+  setSelectedData(res.data);
 })
 .catch(err => {
   if(err) {
     console.log('Error getting Somthwj Data', err.res)
   }
 });
-  }, [])
+        break;
+      default:
+        setSelectedData("Please select a script from the menu above")
+        break;
+    } 
+  }, [selectedScript])
 
   return (
     <div className="App">
-      <Menu setSelectedData={setSelectedData}/>
+      <Menu setSelectedScript={setSelectedScript}/>
       <div>
-        {somthwjData.map(scriptData => {
-          //TODO: Get Data to pass down to ScriptData
-          console.log('Script', scriptData);
+        {selectedData.map(scriptData => {
           return (
-            <ScriptData
-              key={scriptData.id}
-              selectedData={selectedData} />
+            <ScriptData key={scriptData.id} scriptData={scriptData}/>
           )
         })}
       </div>

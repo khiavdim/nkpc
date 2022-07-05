@@ -1,12 +1,17 @@
 import React from 'react';
 
-function ScriptData (selectedData) {
-    console.log('ScriptData', selectedData)
+function ScriptData ({scriptData}) {
     return (
-        <div>
-            {selectedData.name}
-            {selectedData.value}
-        </div>
+        <table>
+            {scriptData.name && 
+                <td>Script Name
+                <tr>{scriptData.name}</tr>
+            </td>
+            }
+            <td>Script Value
+                <tr>{scriptData.value}</tr>
+            </td>
+        </table>
     );
 }
 
